@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Alerta Detalhado
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding id="page8">
+  <ion-card>
+    <ion-list id="alertaDetalhado-list7" [class.done]="oneAlert.done">
+      <ion-item class="item-thumbnail-left"  >
+        <img [src]="'../../assets/' + oneAlert.url_img">
+        <h2>Título: {{(oneAlert | async)?.title_alerts}}</h2>
+        <p>{{oneAlert.date_hour | async}}</p>
+
+        <div class="item item-body" id="alertaDetalhado-list-item-container7">
+          <h2>Descrição:</h2>
+          <div id="alertaDetalhado-markdown8" class="show-list-numbers-and-dots">
+            <p style="margin-top:0px;color:#000000;">{{oneAlert.last_description | async}}</p>
+          </div>
+          <div id="alertaDetalhado-markdown9" class="show-list-numbers-and-dots">
+            <p style="margin-top:0px;color:#000000;">{{oneAlert.penultimate_description | async}}</p>
+          </div>
+          <div id="alertaDetalhado-markdown11" class="show-list-numbers-and-dots">
+            <p style="margin-top:0px;color:#000000;">{{oneAlert.antepenultimate_description | async}}</p>
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+  <button id="alertaDetalhado-button10" ion-button color="positive" block on-click="goToFotoDoAlerta()">
+    Ver Foto
+  </button>
+  <button id="alertaDetalhado-button11" ion-button color="positive" block on-click="goToMapa()">
+    Ver localização
+  </button>
+</ion-content>
