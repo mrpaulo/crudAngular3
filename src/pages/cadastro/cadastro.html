@@ -9,39 +9,39 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding id="page10">
-  <form id="cadastro-form4">
+  <form [formGroup]="form" (ngSubmit)="cadastrar()">
     <ion-list id="cadastro-list6">
       <ion-item id="cadastro-input4">
         <ion-label>
           Nome
         </ion-label>
-        <ion-input type="text" placeholder=""></ion-input>
+        <ion-input formControlName="name" type="text"></ion-input>
       </ion-item>
       <ion-item id="cadastro-input7">
         <ion-label>
           Celular
         </ion-label>
-        <ion-input type="text" placeholder=""></ion-input>
+        <ion-input formControlName="cellphone" type="text"></ion-input>
       </ion-item>
       <ion-item id="cadastro-input5">
         <ion-label>
           Email
         </ion-label>
-        <ion-input type="email" placeholder=""></ion-input>
+        <ion-input formControlName="email" type="email"></ion-input>
       </ion-item>
       <ion-item id="cadastro-input6">
         <ion-label>
           Password
         </ion-label>
-        <ion-input type="text" placeholder=""></ion-input>
+        <ion-input formControlName="password" type="password"></ion-input>
       </ion-item>
     </ion-list>
-    <button id="cadastro-button14" ion-button icon-only color="light" block icon-left style="text-align:left;">
+    <button (click)="obterLocal()" id="cadastro-button14" ion-button icon-only color="light" block icon-left style="text-align:left;">
       <ion-icon name="locate"></ion-icon>
       Usar localização
     </button>
-    <button id="cadastro-button13" ion-button color="stable" block>
-      Sign up
+    <button type="submit" id="cadastro-button13" ion-button color="stable" block>
+      Cadastrar
     </button>
   </form>
 </ion-content>

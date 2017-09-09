@@ -21,14 +21,45 @@ export class HomePage {
 
   addSong(){
     let prompt = this.alertCtrl.create({
-      title: 'Song Name',
-      message: "Enter a name for this new song you're so keen on adding",
+      title: 'Novo alerta teste',
+      message: "...",
       inputs: [
         {
           name: 'title_alert',
-          placeholder: 'Title',
-          
+          placeholder: 'Título'
+        },        
+        {
+          name: 'last_description',
+          placeholder: 'Ultima descrição'
         },
+        {
+          name: 'penultimate_description',
+          placeholder: 'Penultima descriçã'
+        },
+        {
+          name: 'antepenultimate_description',
+          placeholder: 'antepeltima descriçã'
+        },
+        {
+          name: 'date_hour',
+          placeholder: 'Data'
+        },
+        {
+          name: 'type_alert',
+          placeholder: 'Tipo'
+        },
+        {
+          name: 'url_img',
+          placeholder: 'Verde'
+        },
+        {
+          name: 'url_photo',
+          placeholder: 'Número'
+        },
+        {
+          name: 'local_alert',
+          placeholder: '-29.639410, -50.787776'
+        }
       ],
       buttons: [
         {
@@ -43,13 +74,13 @@ export class HomePage {
             this.alerts.push({
               type_alert: 1,
               title_alert: data.title_alert,
-              last_description: "Ultima descrição do trem",
-              penultimate_description: "Penultimo do trem",
-              antepenultimate_description: "Ante Penultimo",
-              date_hour: "10/05/2017 - 21:00 h",
-              url_img: "img/thumbnailVermelho.jpg",
-              url_photo: "http://res.cloudinary.com/dht8hrgql/image/upload/v1499814594/ImagensAlertas/3.jpg",
-              local_alert: "-29.639410, -50.787776"
+              last_description: data.last_description,
+              penultimate_description: data.penultimate_description,
+              antepenultimate_description: data.antepenultimate_description,
+              date_hour: data.date_hour,
+              url_img: "img/thumbnail" + data.url_img + ".jpg",
+              url_photo: "http://res.cloudinary.com/dht8hrgql/image/upload/v1499814594/ImagensAlertas/" + data.url_photo + ".jpg",
+              local_alert: data.local_alert
             });
           }
         }

@@ -20,6 +20,10 @@ import { CadastroPage } from '../pages/cadastro/cadastro';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabase, AngularFireDatabaseModule } from "angularfire2/database";
 import { AcessarProvider } from '../providers/acessar/acessar';
+import { LocalizarProvider } from '../providers/localizar/localizar';
+import { AuthProvider } from '../providers/auth/auth';
+import { Geolocation } from '@ionic-native/geolocation';
+import { GoogleMaps } from "@ionic-native/google-maps";
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCqnIxiNh5V5vUFC2svytMYBcXmLz2zRdE',
@@ -43,7 +47,7 @@ const firebaseConfig = {
     FotoDoAlertaPage,
     AlertaDetalhadoPage,
     MapaPage,
-    CadastroPage
+    CadastroPage   
   ],
   imports: [
     BrowserModule,
@@ -70,7 +74,11 @@ const firebaseConfig = {
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AcessarProvider    
+    AcessarProvider,
+    LocalizarProvider,
+    AuthProvider,
+    Geolocation,
+    GoogleMaps   
   ]
 })
 export class AppModule {}

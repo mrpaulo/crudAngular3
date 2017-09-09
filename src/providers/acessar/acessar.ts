@@ -8,13 +8,6 @@ import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable }
 
 import * as _ from 'lodash';
 
-@Pipe({ name: 'order-by' })
-export class OrderByPipe {
-  transform(array, args) {
-    return _.sortBy(array, args);
-  }
-}
-
 @Injectable()
 export class AcessarProvider {
 
@@ -23,6 +16,7 @@ export class AcessarProvider {
   // }
   alerts: FirebaseListObservable<any>;
   oneAlert: FirebaseObjectObservable<any>;
+  urlPhoto: any;
 
   constructor(
     public navCtrl: NavController,
@@ -50,10 +44,14 @@ export class AcessarProvider {
       query: {
         limitToLast: 30
       }
-    });      
+    });   
+      
   }
 
-
+  obterPhoto(){
+    this.urlPhoto = "http://res.cloudinary.com/dht8hrgql/image/upload/v1499814594/ImagensAlertas/3.jpg";
+    return this.urlPhoto;
+  }  
 
   addSong() {
     let prompt = this.alertCtrl.create({
