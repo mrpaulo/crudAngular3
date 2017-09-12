@@ -24,17 +24,22 @@ export class AlertaDetalhadoPage {
       public navParams: NavParams    
     ) {
       this.idAlert = this.navParams.get("key");
-      this.oneAlert = ap.especificoAlerta(this.idAlert); 
-      console.log("Key: " + this.idAlert);
-      console.log("AlertaUnico: " + this.oneAlert.$ref);
-      console.log("AlertaTitulo: " + this.oneAlert);//("title_alerts")
+      this.oneAlert = ap.especificoAlerta(this.idAlert);
+      this.oneAlert.subscribe(snapshot => {
+        this.oneAlert = snapshot.val();
+      }); 
+      console.log("Key: " + this.idAlert);            
     }
   goToFotoDoAlerta(params){
     if (!params) params = {};
-    this.navCtrl.push(FotoDoAlertaPage);
+    this.navCtrl.push(FotoDoAlertaPage, {
+      key: params      
+    });
   }
   goToMapa(params){
     if (!params) params = {};
-    this.navCtrl.push(MapaPage);
+    this.navCtrl.push(MapaPage, {
+      key: params      
+    });
   }
 }

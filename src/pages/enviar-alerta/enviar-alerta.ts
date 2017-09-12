@@ -5,7 +5,7 @@ import { AngularFireDatabase, FirebaseListObservable } from "angularfire2/databa
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { LocalizarProvider } from "../../providers/localizar/localizar";
 import { InCioPage } from "../in-cio/in-cio";
-import { Camera, CameraOptions } from '@ionic-native/camera';
+import { Camera, /*CameraOptions*/ } from '@ionic-native/camera';
 
 @Component({
   selector: 'page-enviar-alerta',

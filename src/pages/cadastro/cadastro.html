@@ -36,10 +36,13 @@
         <ion-input formControlName="password" type="password"></ion-input>
       </ion-item>
     </ion-list>
-    <button (click)="obterLocal()" id="cadastro-button14" ion-button icon-only color="light" block icon-left style="text-align:left;">
-      <ion-icon name="locate"></ion-icon>
-      Usar localização
-    </button>
+    <ion-item id="cadastro-toggle1">
+      <ion-label>
+        <ion-icon name="locate"></ion-icon>
+        Usar localização        
+      </ion-label>
+      <ion-toggle formControlName="localizar" color="positive" checked="true"></ion-toggle>
+    </ion-item>    
     <button type="submit" id="cadastro-button13" ion-button color="stable" block>
       Cadastrar
     </button>

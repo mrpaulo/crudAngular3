@@ -6,10 +6,17 @@ import { FormBuilder, FormGroup } from "@angular/forms";
 import { AcessarProvider } from "../../providers/acessar/acessar";
 import { LocalizarProvider } from "../../providers/localizar/localizar";
 import { AuthProvider } from '../../providers/auth/auth';
+import { AngularFireAuth } from "angularfire2/auth";
 
 @Component({
   selector: 'page-login',
-  templateUrl: 'login.html'
+  templateUrl: 'login.html',
+  providers: [
+    AcessarProvider,
+    LocalizarProvider,
+    AuthProvider, 
+    AngularFireAuth    
+  ]
 })
 export class LoginPage {
   user: FirebaseListObservable<any>;
@@ -33,7 +40,7 @@ export class LoginPage {
     }); 
   }  
 
-  signInWithEmail() {
+  cadastrar() {
     const loading = this.loadingCtrl.create({
       content: 'Por favor, aguarde...'
     });

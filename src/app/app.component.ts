@@ -3,7 +3,7 @@ import { Platform, Nav } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { HomePage } from '../pages/home/home';
+//import { HomePage } from '../pages/home/home';
 
 import { AlertaDetalhadoPage } from '../pages/alerta-detalhado/alerta-detalhado';
 import { FotoDoAlertaPage } from '../pages/foto-do-alerta/foto-do-alerta';
@@ -27,6 +27,7 @@ export class MyApp {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
+      //c1463ecb-ec58-4bd8-9705-d54e33c417b8      
       statusBar.styleDefault();
       splashScreen.hide();
     });

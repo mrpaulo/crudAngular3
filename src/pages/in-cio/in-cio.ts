@@ -20,8 +20,7 @@ export class InCioPage {
       public navCtrl: NavController, 
       public ap: AcessarProvider    
     ) {
-      this.alerts = ap.ultimoAlerta(); 
-      console.log("Objeto: " );  
+      this.alerts = ap.ultimoAlerta();        
     }
   goToAlertaDetalhado(params1) {
     if (!params1) params1 = {};
@@ -31,10 +30,14 @@ export class InCioPage {
   }
   goToFotoDoAlerta(params) {
     if (!params) params = {};
-    this.navCtrl.push(FotoDoAlertaPage);
+    this.navCtrl.push(FotoDoAlertaPage, {
+      key: params      
+    });
   }
   goToMapa(params) {
     if (!params) params = {};
-    this.navCtrl.push(MapaPage);
+    this.navCtrl.push(MapaPage, {
+      key: params      
+    });
   }
 }

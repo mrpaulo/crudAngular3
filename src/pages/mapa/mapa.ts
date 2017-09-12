@@ -1,14 +1,11 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { FotoDoAlertaPage } from '../foto-do-alerta/foto-do-alerta';
 import {
   GoogleMaps,
   GoogleMap,
   GoogleMapsEvent,
-  GoogleMapOptions,
-  CameraPosition,
-  MarkerOptions,
-  Marker
+  GoogleMapOptions
  } from '@ionic-native/google-maps';
 
 //AIzaSyB6wgJQs448gRBN0XDo03WuEULy7Dl_TKI
@@ -69,6 +66,8 @@ export class MapaPage {
 
   goToFotoDoAlerta(params){
     if (!params) params = {};
-    this.navCtrl.push(FotoDoAlertaPage);
+    this.navCtrl.push(FotoDoAlertaPage, {
+      key: params      
+    });
   }
 }

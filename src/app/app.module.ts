@@ -18,7 +18,7 @@ import { MapaPage } from '../pages/mapa/mapa';
 import { CadastroPage } from '../pages/cadastro/cadastro';
 
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabase, AngularFireDatabaseModule } from "angularfire2/database";
+import { /*AngularFireDatabase, */ AngularFireDatabaseModule } from "angularfire2/database";
 import { AcessarProvider } from '../providers/acessar/acessar';
 import { LocalizarProvider } from '../providers/localizar/localizar';
 import { AuthProvider } from '../providers/auth/auth';

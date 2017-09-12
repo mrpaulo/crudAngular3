@@ -1,6 +1,6 @@
 {
   "name": "crud2",
-  "app_id": "",
+  "app_id": "cec60923",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}

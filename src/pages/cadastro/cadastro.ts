@@ -17,7 +17,8 @@ import { InCioPage } from '../in-cio/in-cio';
 })
 export class CadastroPage {
   user: FirebaseListObservable<any>;
-  local: any;
+  preCoordenadas: any;
+  coordenadas: any;
   form : FormGroup;
   
   constructor(public navCtrl: NavController,
@@ -32,19 +33,26 @@ export class CadastroPage {
       name: [''],
       cellphone: [''],
       email: [''],
-      password: ['']
+      password: [''], 
+      localizar: []
     }); 
+    this.preCoordenadas = this.lp.obterLocal();
   }  
-
+  
+  
   cadastrar(){
-    this.local = this.lp.obterLocal();
+    console.log('Valor do form local: ' + this.form.value.localizar);
+    if (this.form.value.localizar){
+      this.coordenadas = this.preCoordenadas;
+    }else {this.coordenadas = 0;}
+    
     this.user = this.af.list('/userList');
     this.user.push({
       name: this.form.value.name,
       cellphone: this.form.value.cellphone,
       email: this.form.value.email,
       password: this.form.value.password,//depois de instalar o "md5" Md5.hashStr(password)
-      local: this.local,
+      local: this.coordenadas,
       type_user: 1
     })
          

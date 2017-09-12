@@ -1,12 +1,11 @@
-import { Injectable, Pipe } from '@angular/core';
-import { Http } from '@angular/http';
+import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 
-import { Component } from '@angular/core';
+//import { Component } from '@angular/core';
 import { NavController, AlertController, ActionSheetController } from 'ionic-angular';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 
-import * as _ from 'lodash';
+//import * as _ from 'lodash';
 
 @Injectable()
 export class AcessarProvider {
@@ -28,7 +27,10 @@ export class AcessarProvider {
   }
 
   especificoAlerta(alertID) {
-    return this.oneAlert = this.af.object('/alertList/'+alertID);
+    this.oneAlert = this.af.object('/alertList/'+alertID, { preserveSnapshot: true });
+    
+    return this.oneAlert
+    //return this.oneAlert = this.af.child('/alertList').child(alertID);
   }
 
   ultimoAlerta() {
