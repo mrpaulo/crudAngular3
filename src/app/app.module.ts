@@ -24,6 +24,9 @@ import { LocalizarProvider } from '../providers/localizar/localizar';
 import { AuthProvider } from '../providers/auth/auth';
 import { Geolocation } from '@ionic-native/geolocation';
 import { GoogleMaps } from "@ionic-native/google-maps";
+import { UserListaPage } from "../pages/user-lista/user-lista";
+import { AlertasPendPage } from "../pages/alertas-pend/alertas-pend";
+import { Push } from '@ionic-native/push';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCqnIxiNh5V5vUFC2svytMYBcXmLz2zRdE',
@@ -47,7 +50,9 @@ const firebaseConfig = {
     FotoDoAlertaPage,
     AlertaDetalhadoPage,
     MapaPage,
-    CadastroPage   
+    CadastroPage,
+    UserListaPage,
+    AlertasPendPage   
   ],
   imports: [
     BrowserModule,
@@ -68,7 +73,9 @@ const firebaseConfig = {
     FotoDoAlertaPage,
     AlertaDetalhadoPage,
     MapaPage,
-    CadastroPage
+    CadastroPage,
+    UserListaPage,
+    AlertasPendPage
   ],
   providers: [
     StatusBar,
@@ -78,7 +85,8 @@ const firebaseConfig = {
     LocalizarProvider,
     AuthProvider,
     Geolocation,
-    GoogleMaps   
+    GoogleMaps,
+    Push       
   ]
 })
 export class AppModule {}

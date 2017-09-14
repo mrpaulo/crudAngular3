@@ -7,6 +7,7 @@ import { AcessarProvider } from "../../providers/acessar/acessar";
 import { LocalizarProvider } from "../../providers/localizar/localizar";
 import { AuthProvider } from '../../providers/auth/auth';
 import { AngularFireAuth } from "angularfire2/auth";
+import { InCioPage } from "../in-cio/in-cio";
 
 @Component({
   selector: 'page-login',
@@ -49,7 +50,7 @@ export class LoginPage {
     this.auth.signInWithEmailAndPassword(this.form.value.email, this.form.value.password)
     .then(() => {
       loading.dismiss();
-      this.navCtrl.setRoot('tabs');
+      this.navCtrl.push(InCioPage);
     }, (error) => {
       loading.dismiss();
       switch (error.code) {

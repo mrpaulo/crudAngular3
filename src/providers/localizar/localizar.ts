@@ -30,6 +30,6 @@ export class LocalizarProvider {
       );
 
     this.coordenadas = "-29.639410, -50.787776";
-    return this.latLng;
-  }
+    return this.coordenadas;
+  } //cordova plugin add phonegap-plugin-push --variable SENDER_ID=105371248958 --save
 }

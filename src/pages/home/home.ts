@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController, ActionSheetController } from 'ionic-angular';
+import { NavController, AlertController, ActionSheetController, NavParams } from 'ionic-angular';
 
 import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
 
@@ -9,14 +9,19 @@ import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database
 })
 export class HomePage {
   alerts: FirebaseListObservable<any>;
+  pushMessage: string = 'push message will be displayed here';
 
   constructor(
     public navCtrl: NavController, 
     public alertCtrl: AlertController, 
     af: AngularFireDatabase, 
-    public actionSheetCtrl: ActionSheetController
+    public actionSheetCtrl: ActionSheetController,
+    public params: NavParams
   ) {
       this.alerts = af.list('/alertList');
+      if (params.data.message) {
+        this.pushMessage = params.data.message;
+      }
   }
 
   addSong(){
