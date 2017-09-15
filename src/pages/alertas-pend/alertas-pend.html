@@ -9,7 +9,7 @@
 </ion-header>
 <ion-content padding id="page12">
   <ion-list id="histRicoAlerta-list2">
-    <ion-item color="none" *ngFor="let alert of alerts | async " (click)="showOptions(alert.$key, alert.title_alert, type_alert, last_description)">
+    <ion-item color="none" *ngFor="let alert of alerts | async " (click)="showOptions(alert.$key, alert.title_alert, alert.type_alert, alert.last_description)">
       <h2>Título: {{alert.title_alert}}</h2>
       <p>Tipo Alerta: {{alert.type_alert}}</p>      
       <p>Data e hora: </p>

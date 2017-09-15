@@ -8,10 +8,7 @@ import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable }
 
 @Injectable()
 export class AcessarProvider {
-
-  // constructor(public http: Http) {
-  //   console.log('Hello AcessarProvider Provider');
-  // }ionic cordova run android -lcs -- -d ou ionic cordova run android -lcs --address localhost
+  
   alerts: FirebaseListObservable<any>;
   oneAlert: FirebaseObjectObservable<any>;
   urlPhoto: any;
@@ -21,70 +18,70 @@ export class AcessarProvider {
     public navCtrl: NavController,
     public alertCtrl: AlertController,
     public af: AngularFireDatabase,
-    public actionSheetCtrl: ActionSheetController     
+    public actionSheetCtrl: ActionSheetController
   ) {
     //this.alerts = af.list('/alertList');
-    }  
+  }
 
-    aproveAlert(alertId, title_alert, type_alert, last_description){
-      this.alerts.push({
-        type_alert: type_alert,
-        title_alert: title_alert,
-        last_description: last_description,
-        penultimate_description: "",
-        antepenultimate_description: "",
-        date_hour: "10/05/2017 - 20:00 h",
-        url_img: "img/thumbnailVermelho.jpg",
-        url_photo: "http://res.cloudinary.com/dht8hrgql/image/upload/v1499814594/ImagensAlertas/3.jpg",
-        local_alert: "-29.639410, -50.787776"
-      });
-    }
+  aproveAlert(alertId, title_alert, type_alert, last_description) {
+    this.alerts = this.af.list('/alertList');
+    this.alerts.push({
+      title_alert: title_alert,
+      type_alert: type_alert,
+      last_description: last_description,
+      penultimate_description: "",
+      antepenultimate_description: "",
+      date_hour: "10/05/2017 - 20:00 h",
+      url_img: "img/thumbnailVermelho.jpg",
+      url_photo: "http://res.cloudinary.com/dht8hrgql/image/upload/v1499814594/ImagensAlertas/3.jpg",
+      local_alert: "-29.639410, -50.787776"
+    });
+  }
 
-    listarPendAlertas() {
-      return this.alerts = this.af.list('/pendAlertList',{
-        query: {
-          limitToLast: 30
-        }
-      });   
-        
-    }
-
-  listarUser(){
-    return this.users = this.af.list('/userList',{
+  listarPendAlertas() {
+    return this.alerts = this.af.list('/pendAlertList', {
       query: {
         limitToLast: 30
       }
-    });         
-  }  
+    });
+  }
+
+  listarUser() {
+    return this.users = this.af.list('/userList', {
+      query: {
+        limitToLast: 30
+      }
+    });
+  }
 
   especificoAlerta(alertID) {
-    this.oneAlert = this.af.object('/alertList/'+alertID, { preserveSnapshot: true });
-    
+    this.oneAlert = this.af.object('/alertList/' + alertID, { preserveSnapshot: true });
+
     return this.oneAlert
     //return this.oneAlert = this.af.child('/alertList').child(alertID);
   }
 
   ultimoAlerta() {
-    return this.alerts = this.af.list('/alertList',{
+    return this.alerts = this.af.list('/alertList', {
       query: {
         limitToLast: 1
       }
     });
   }
-  
+
   listarAlertas() {
-    return this.alerts = this.af.list('/alertList',{
+    return this.alerts = this.af.list('/alertList', {
       query: {
         limitToLast: 30
       }
-    });   
-      
+    });
+
   }
 
-  obterPhoto(){
+  obterPhoto() {
     this.urlPhoto = "http://res.cloudinary.com/dht8hrgql/image/upload/v1499814594/ImagensAlertas/3.jpg";
     return this.urlPhoto;
-  }  
+  }
 
   addSong() {
     let prompt = this.alertCtrl.create({

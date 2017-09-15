@@ -32,12 +32,13 @@
       </ion-label>
       <ion-textarea formControlName="last_description" type="text"></ion-textarea>
     </ion-item>
-    <button (click)="takePicture()" id="enviarAlerta-button4" ion-button icon-only color="light" block icon-left style="text-align:left;">
-      <ion-icon name="camera"></ion-icon>
-      Tirar foto
-    </button>
     <button type="submit" id="enviarAlerta-button5" ion-button color="positive" block>
       Enviar Alerta
     </button>
   </form>
+  <p>Para anexar foto ao alerta:</p>
+  <button (click)="takePicture()" ion-button icon-only color="light" block icon-left style="text-align:left;">
+    <ion-icon name="camera"></ion-icon>
+    Tirar foto
+  </button>
 </ion-content>

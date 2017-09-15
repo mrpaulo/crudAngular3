@@ -35,8 +35,7 @@ export class MyApp {
     public alertCtrl: AlertController) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-      //c1463ecb-ec58-4bd8-9705-d54e33c417b8      
+      // Here you can do any higher level native things you might need.         
       statusBar.styleDefault();
       splashScreen.hide(); 
       this.initPushNotification();     
@@ -58,12 +57,12 @@ export class MyApp {
     const pushObject: PushObject = this.push.init(options);
 
     pushObject.on('registration').subscribe((data: any) => {
-      console.log('device token -> ' + data.registrationId);
+      alert('device token -> ' + data.registrationId);
       //TODO - send device token to server
     });
 
     pushObject.on('notification').subscribe((data: any) => {
-      console.log('message -> ' + data.message);
+      alert('message -> ' + data.message);
       //if user using app and push notification comes
       if (data.additionalData.foreground) {
         // if application open, show popup
@@ -86,11 +85,11 @@ export class MyApp {
         //if user NOT using app and push notification comes
         //TODO: Your logic on click of push notification directly
         this.navCtrl.push(HomePage, { message: data.message });
-        console.log('Push notification clicked');
+        alert('Push notification clicked');
       }
     });
 
-    pushObject.on('error').subscribe(error => console.error('Error with Push plugin' + error));
+    pushObject.on('error').subscribe(error => alert('Error with Push plugin' + error));
   }
   //fim init push
 

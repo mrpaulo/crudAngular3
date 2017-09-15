@@ -83,6 +83,7 @@ export class AlertasPendPage {
           text: 'Aprovar Alerta',
           handler: () => {
             this.ap.aproveAlert(alertId, title_alert, type_alert, last_description);
+            this.removeAlert(alertId);
           }
         },        
         {

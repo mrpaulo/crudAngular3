@@ -31,20 +31,18 @@ users: FirebaseListObservable<any>;
     this.users.remove(userId);
   }
 
-  updateType(userId, name, email, cellphone, type_user){
+  updateType(userId, name, type_user){
     let prompt = this.alertCtrl.create({
       message: "Editar tipo do Usuário: "+name,
       inputs: [        
         {
           label: "Cadastrado",
-          name: 'type_user',
-          value: "1",
-          type: 'radio'         
+          value: '1',
+          type: 'radio'                   
         },
         {
           label: "Operador",
-          name: 'type_user',
-          value: "2",
+          value: '2',
           type: 'radio'         
         }
       ],
@@ -59,10 +57,7 @@ users: FirebaseListObservable<any>;
           text: 'Save',
           handler: data => {
             this.users.update(userId, {              
-              name: data.name,
-              email: data.email,
-              cellphone: data.cellphone,
-              type_user: data.type_user
+              type_user: data
             });
           }
         }
@@ -71,11 +66,11 @@ users: FirebaseListObservable<any>;
     prompt.present();
   }
 
-  updateUser(userId, name, email, cellphone, type_user){
+  updateUser(userId, name, email, cellphone){
     let prompt = this.alertCtrl.create({
-      message: "Editar dados do Usuário",
+      message: "Editar dados do Usuário: "+name,
       inputs: [
-        {
+        {          
           name: 'name',
           value: name          
         },
@@ -86,10 +81,6 @@ users: FirebaseListObservable<any>;
         {
           name: 'cellphone',
           value: cellphone          
-        },
-        {
-          name: 'type_user',
-          value: type_user          
         }
       ],
       buttons: [
@@ -105,8 +96,7 @@ users: FirebaseListObservable<any>;
             this.users.update(userId, {
               name: data.name,
               email: data.email,
-              cellphone: data.cellphone,
-              type_user: data.type_user
+              cellphone: data.cellphone
             });
           }
         }
@@ -122,13 +112,13 @@ users: FirebaseListObservable<any>;
         {
           text: 'Editar Usuário',
           handler: () => {
-            this.updateUser(userId, name, email, cellphone, type_user);
+            this.updateUser(userId, name, email, cellphone);
           }
         },
         {
           text: 'Mudar tipo Usuário',
           handler: () => {
-            this.updateType(userId, name, email, cellphone, type_user);
+            this.updateType(userId, name, type_user);
           }
         },
         {
