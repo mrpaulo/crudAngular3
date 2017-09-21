@@ -56,15 +56,10 @@ export class LoginPage {
     this.verificaUser();
   }
 
-  verificaUser() {
-    // firebase.auth().onAuthStateChanged(function (logadoObs) {
-    //   if (logadoObs) {
+  verificaUser() {    
         console.log("usuário logado!");
         this.usuario = firebase.auth().currentUser;
         
-        this.usuario.subscribe(snapshot => {
-          this.usuario = snapshot.val();
-        });
         if (this.usuario) {
           this.nome = this.usuario.name;
           this.tipo = this.usuario.email;
@@ -72,11 +67,7 @@ export class LoginPage {
           console.log("Nome: " + this.nome);
         } else {
           console.log("Sem usuário logado!");
-        }
-    //   } else {
-    //     console.log("Sem usuário logado no observable!");
-    //   }
-    // });
+        }    
   }
 
   sair() {
