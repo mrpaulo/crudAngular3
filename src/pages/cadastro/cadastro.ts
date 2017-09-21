@@ -6,6 +6,7 @@ import { AngularFireDatabase, FirebaseListObservable } from "angularfire2/databa
 
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { InCioPage } from '../in-cio/in-cio';
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'page-cadastro',
@@ -46,15 +47,22 @@ export class CadastroPage {
       this.coordenadas = this.preCoordenadas;
     }else {this.coordenadas = 0;}
     
-    this.user = this.af.list('/userList');
+    this.user = this.af.list('/users');
     this.user.push({
       name: this.form.value.name,
       cellphone: this.form.value.cellphone,
       email: this.form.value.email,
       password: this.form.value.password,//depois de instalar o "md5" Md5.hashStr(password)
       local: this.coordenadas,
-      type_user: 1
-    })
+      type_user: 1      
+    });
+
+    firebase.auth().createUserWithEmailAndPassword(this.form.value.email, this.form.value.password).catch(function(error) {
+      // Handle Errors here.
+      var errorMessage = error.message;
+      console.log("Erro criar auth: " + errorMessage);
+      // ...
+    });
          
     let prompt = this.alertCtrl.create({
       title: 'Syspush diz:',

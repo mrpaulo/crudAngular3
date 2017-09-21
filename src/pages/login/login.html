@@ -32,4 +32,8 @@
       Cadastre-se
     </button>
   </form>
+  <div [hidden]="flag">
+    <p>Conectado como: {{nome}}</p>
+    <a on-click="sair()">Sair</a>
+  </div>
 </ion-content>

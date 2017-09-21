@@ -47,7 +47,7 @@ export class AcessarProvider {
   }
 
   listarUser() {
-    return this.users = this.af.list('/userList', {
+    return this.users = this.af.list('/users', {
       query: {
         limitToLast: 30
       }

@@ -142,4 +142,3 @@ export class MyApp {
     this.navCtrl.setRoot(UserListaPage);
   }
 }
-
