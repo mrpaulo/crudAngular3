@@ -70,6 +70,6 @@ export class CadastroPage {
       buttons: [{text: 'Ok'}]
     });
     prompt.present();
-    this.navCtrl.push(InCioPage);
+    this.navCtrl.setRoot(InCioPage);
   }  
 }

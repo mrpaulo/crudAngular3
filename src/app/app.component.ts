@@ -59,6 +59,7 @@ export class MyApp {
     pushObject.on('registration').subscribe((data: any) => {
       alert('device token -> ' + data.registrationId);
       //TODO - send device token to server
+      //FirebaseMessaging.getInstance().subscribeToTopic("todos");
     });
 
     pushObject.on('notification').subscribe((data: any) => {

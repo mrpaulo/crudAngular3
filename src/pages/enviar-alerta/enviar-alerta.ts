@@ -72,7 +72,7 @@ export class EnviarAlertaPage {
       buttons: [{ text: 'Ok' }]
     });
     prompt.present();
-    this.navCtrl.push(InCioPage);
+    this.navCtrl.setRoot(InCioPage);
   }
 
   takePicture() {
